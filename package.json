@@ -6,8 +6,6 @@
 	"author": "Mohammed <redcodemohammed@gmail.com>",
 	"license": "MIT",
 	"devDependencies": {
-		"eslint": "^7.4.0",
-		"eslint-plugin-import": "^2.22.0",
 		"nodemon": "^2.0.2",
 		"ts-node": "^8.6.2",
 		"typescript": "^3.7.5"
@@ -19,6 +17,9 @@
 	},
 	"dependencies": {
 		"@types/node": "^13.13.5",
+		"mathjax-node": "^2.1.1",
+		"svg2img": "^0.7.0",
+		"telegraf": "^3.38.0",
 		"ts-node": "^8.6.2",
 		"typescript": "^3.7.5"
 	}
