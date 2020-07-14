@@ -13,7 +13,7 @@ bot.help((ctx) => {
 	);
 });
 
-bot.command("simplify", simplify);
+bot.command("s", simplify);
 
 bot.on("inline_query", inline);
 bot.on("text", math);
