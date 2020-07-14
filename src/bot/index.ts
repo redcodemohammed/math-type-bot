@@ -10,13 +10,18 @@ bot.on("text", async (ctx) => {
 	math = math.replace(/\s/g, "");
 	let svg = await math2svg(math);
 
+	let width = +svg.match(/^<svg[^>]*width\s*=\s*\"?(\d+)\"?[^>]*>/)[1];
+	let height = +svg.match(/^<svg[^>]*height\s*=\s*\"?(\d+)\"?[^>]*>/)[1];
+
+	if (width > 40) ctx.reply("The expression is too long :(");
+
 	try {
 		svg2img(
 			svg,
 			{
 				quality: 100,
-				width: math.length > 15 ? 50 * math.length - 800 : 200,
-				height: math.length > 15 ? 8 * math.length : 100
+				width: width * 50,
+				height: height * 50
 			},
 			(err, buffer) => {
 				if (err) throw err;
