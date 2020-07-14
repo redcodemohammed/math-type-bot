@@ -12,7 +12,7 @@ export default (math: string): Promise<string> =>
 	new Promise((resolve, reject) => {
 		mjAPI.typeset(
 			{
-				math: math.replace(/\s/g, ""),
+				math,
 				format: "AsciiMath", // or "inline-TeX", "MathML"
 				svg: true // or svg:true, or html:true
 			},

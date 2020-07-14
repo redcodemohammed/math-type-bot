@@ -7,6 +7,7 @@ const bot = new Telegraf(BOT_TOKEN);
 
 bot.on("text", async (ctx) => {
 	let math = ctx.message.text;
+	math = math.replace(/\s/g, "");
 	let svg = await math2svg(math);
 
 	try {
