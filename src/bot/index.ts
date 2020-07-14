@@ -12,8 +12,13 @@ bot.on("text", async (ctx) => {
 	try {
 		svg2img(
 			svg,
-			{ quality: 100, width: 25 * math.length, height: 8 * math.length },
+			{
+				quality: 100,
+				width: math.length > 15 ? 50 * math.length - 800 : 200,
+				height: math.length > 15 ? 8 * math.length : 100
+			},
 			(err, buffer) => {
+				if (err) throw err;
 				ctx.replyWithPhoto({
 					source: buffer
 				});
