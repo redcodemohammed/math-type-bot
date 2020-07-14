@@ -4,7 +4,7 @@ import algebrite from "algebrite";
 import svg2img from "svg2img";
 
 export default async (ctx: TelegrafContext) => {
-	let math = ctx.message.text.substr(1);
+	let math = ctx.message.text.substr(2);
 	math = math.replace(/\s/g, "");
 
 	math = algebrite.run(math);
