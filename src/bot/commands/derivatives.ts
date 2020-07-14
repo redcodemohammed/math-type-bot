@@ -4,11 +4,11 @@ import algebrite from "algebrite";
 import svg2img from "svg2img";
 
 export default async (ctx: TelegrafContext) => {
-	let math = ctx.message.text.substr(4);
+	let math = ctx.message.text.substr(4).trim();
 	math = math.replace(/\s/g, "");
 
 	try {
-		math = algebrite.simplify(math);
+		math = algebrite.derivative(math);
 		let svg = await math2svg(math);
 		let width = +svg.match(/^<svg[^>]*width\s*=\s*\"?(\d+)\"?[^>]*>/)[1];
 		let height = +svg.match(/^<svg[^>]*height\s*=\s*\"?(\d+)\"?[^>]*>/)[1];

@@ -54,7 +54,8 @@ export default async (ctx: TelegrafContext) => {
 				type: "article",
 				title: "Please send a valid MathML",
 				input_message_content: {
-					message_text: "Please send a valid MathML"
+					message_text:
+						"Please send a valid MathML, if you think something's wrong please contact @redcode9000"
 				}
 			}
 		]);

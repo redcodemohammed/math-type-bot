@@ -8,8 +8,8 @@ export default async (ctx: TelegrafContext) => {
 	math = math.replace(/\s/g, "");
 
 	try {
-		math = algebrite.simplify(math);
-		let svg = await math2svg(math);
+		math = algebrite.integral(math);
+		let svg = await math2svg(math + "+c");
 		let width = +svg.match(/^<svg[^>]*width\s*=\s*\"?(\d+)\"?[^>]*>/)[1];
 		let height = +svg.match(/^<svg[^>]*height\s*=\s*\"?(\d+)\"?[^>]*>/)[1];
 		if (width > 40) ctx.reply("The expression is too long :(");
@@ -28,6 +28,8 @@ export default async (ctx: TelegrafContext) => {
 			}
 		);
 	} catch {
-		ctx.reply("Please send a valid MathML");
+		ctx.reply(
+			"Please send a valid MathML, if you think something's wrong please contact @redcode9000"
+		);
 	}
 };

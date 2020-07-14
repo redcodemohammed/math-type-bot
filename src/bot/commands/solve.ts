@@ -8,7 +8,7 @@ export default async (ctx: TelegrafContext) => {
 	math = math.replace(/\s/g, "");
 
 	try {
-		math = algebrite.simplify(math);
+		math = algebrite.roots(math);
 		let svg = await math2svg(math);
 		let width = +svg.match(/^<svg[^>]*width\s*=\s*\"?(\d+)\"?[^>]*>/)[1];
 		let height = +svg.match(/^<svg[^>]*height\s*=\s*\"?(\d+)\"?[^>]*>/)[1];

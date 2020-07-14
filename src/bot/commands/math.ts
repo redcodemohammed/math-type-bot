@@ -28,6 +28,8 @@ export default async (ctx: TelegrafContext) => {
 			}
 		);
 	} catch {
-		ctx.reply("Please send a valid MathML");
+		ctx.reply(
+			"Please send a valid MathML, if you think something's wrong please contact @redcode9000"
+		);
 	}
 };
